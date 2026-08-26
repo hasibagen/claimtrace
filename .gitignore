@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+.tox/
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+*~
+
+# Editors
+.vscode/
+*.swp
+*.swo
+
+# Wiki user data — NEVER commit these!
+# (The skill is for your data; this repo is the skill itself.)
+raw/
+00-pending/
+papers/
+claims/
+evidence/
+syntheses/
+topics/
+paperinfo/
+*.log
+index.md
+log.md
+AGENTS.md
+pi-session-*.html
+
+# Archives we keep locally but don't need to ship
+ref/backup/
+*.bak
+*~
+
+# Markdown editor caches
+.obsidian/
+
+# Generated
+*.pyc
+
+# Anything starting with tmp
+tmp/

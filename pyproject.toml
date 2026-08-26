@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evidence-wiki-skill"
+version = "1.0.0"
+description = "Academic evidence wiki: paper → claim → evidence nodes with LLM-extracted JSON, script-validated markdown, and Obsidian-native cross-links."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "hasibagen", email = "you@example.com" },
+]
+license = { text = "MIT" }
+dependencies = [
+    "PyYAML>=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/hasibagen/evidence-wiki"
+Repository = "https://github.com/hasibagen/evidence-wiki"
+Issues = "https://github.com/hasibagen/evidence-wiki/issues"
+
+[tool.setuptools]
+packages = ["scripts", "scripts.archive", "scripts.schemas", "scripts.tests", "specs", "skills", "references", "references.templates", "references.examples"]
+
+[tool.setuptools.package-dir]
+"" = "."
+
+[tool.setuptools.package-data]
+"scripts" = ["*.sh"]
+"specs" = ["*.md"]
+"references.templates" = ["*.md"]
+"references.examples" = ["*.md", "*.json"]

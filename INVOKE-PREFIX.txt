@@ -1,0 +1,1 @@
+你在 wiki 项目(/home/mind/nut/edu/wiki)工作。必须使用已加载的 evidence-wiki skill:先 read /home/mind/nut/edu/wiki/.skill/skills/wiki-extract-paper/SKILL.md,严格按其 S0-S7 标准顺序执行(S3 只写 frontmatter,body 由 wiki_render_nodes.py 渲染;字段契约以 ARCHITECTURE.md §3 为准,禁止自行编造字段或 enum 值)。完成后报告写入路径与 lint 结果。

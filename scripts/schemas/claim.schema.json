@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wiki/schemas/claim.schema.json",
+  "title": "Claim",
+  "description": "claim node frontmatter schema (ARCHITECTURE §3.5, 扁平化重写 2026-08-25 批次1:对齐 324 个现存节点的扁平字段;additionalProperties 暂宽,enum 严格——违规值即批次3清洗目标)",
+  "type": "object",
+  "required": [
+    "type",
+    "statement",
+    "claim_type",
+    "verify_status"
+  ],
+  "properties": {
+    "type": {
+      "const": "claim"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500,
+      "description": "一句话陈述,关键命题"
+    },
+    "claim_type": {
+      "enum": [
+        "empirical_result",
+        "empirical_generalization",
+        "theoretical_interpretation",
+        "methodological",
+        "meta_analytic"
+      ]
+    },
+    "origin": {
+      "enum": [
+        "extracted",
+        "author",
+        "normalized",
+        "synthesized"
+      ],
+      "description": "claim 出处 (GPT §二十三)"
+    },
+    "atomic": {
+      "type": "boolean",
+      "description": "是否原子化(GPT §22)"
+    },
+    "scope_population": {
+      "type": "string"
+    },
+    "scope_modality": {
+      "type": "string"
+    },
+    "scope_task": {
+      "type": "string"
+    },
+    "scope_region": {
+      "type": "string"
+    },
+    "scope_study_design": {
+      "type": "string"
+    },
+    "verify_status": {
+      "enum": [
+        "supported",
+        "partial",
+        "contradicted",
+        "no_evidence"
+      ]
+    },
+    "verify_confidence": {
+      "type": [
+        "number",
+        "string"
+      ],
+      "description": "0-1 数值(历史数据混有 high/low 枚举,批次3清洗后收紧为 number)"
+    },
+    "verify_strength": {
+      "enum": [
+        "strong",
+        "moderate",
+        "weak",
+        "inconclusive"
+      ]
+    },
+    "verify_consensus": {
+      "enum": [
+        "established",
+        "emerging",
+        "fringe"
+      ]
+    },
+    "verify_evidence_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "verify_supporting_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "verify_contradicting_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "verify_evidence_quality": {
+      "type": "string"
+    },
+    "verify_last_updated": {
+      "type": "string"
+    },
+    "reasoning": {
+      "type": "string",
+      "description": "Toulmin warrant 降级(GPT §四)"
+    },
+    "reasoning_type": {
+      "enum": [
+        "empirical_inference",
+        "theoretical_assumption",
+        "methodological_design"
+      ]
+    },
+    "sources_targets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\[\\[[^\\]]+\\]\\]$"
+      }
+    },
+    "sources_confidences": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "high",
+          "medium",
+          "low"
+        ]
+      }
+    },
+    "sources_relations": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "direct",
+          "indirect",
+          "partial"
+        ]
+      }
+    },
+    "supports_targets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\[\\[[^\\]]+\\]\\]$"
+      }
+    },
+    "supports_confidences": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "high",
+          "medium",
+          "low"
+        ]
+      }
+    },
+    "supports_relations": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "direct",
+          "indirect",
+          "partial"
+        ]
+      }
+    },
+    "contradicts_targets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\[\\[[^\\]]+\\]\\]$"
+      }
+    },
+    "contradicts_confidences": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "high",
+          "medium",
+          "low"
+        ]
+      }
+    },
+    "contradicts_relations": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "direct",
+          "indirect",
+          "partial"
+        ]
+      }
+    },
+    "evidence_targets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\[\\[[^\\]]+\\]\\]$"
+      }
+    },
+    "evidence_confidences": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "high",
+          "medium",
+          "low"
+        ]
+      }
+    },
+    "evidence_relations": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "direct",
+          "indirect",
+          "partial"
+        ]
+      }
+    },
+    "claim_origin": {
+      "enum": [
+        "author_conclusion",
+        "extracted",
+        "normalized",
+        "synthesized",
+        "user"
+      ],
+      "description": "主张来源分层(批次4,GPT §三十四):铁律 #9 CLAIM≠PAPER CONCLUSION 的机械化"
+    }
+  },
+  "additionalProperties": true
+}
