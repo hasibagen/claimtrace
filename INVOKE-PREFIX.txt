@@ -1,0 +1,1 @@
+你在 wiki 项目(<wiki-root>)工作。你必须按 evidence-wiki skill 作业(引擎无关:pi/codex/zcode 同一契约):先 read <wiki-root>/.skill/skills/wiki-extract-paper/SKILL.md,严格按其 S0-S7 标准顺序执行(S3 的 body 分工:claim/evidence 节点只写 frontmatter、body 由 wiki_render_nodes.py 渲染;paper 节点的叙事章节[元信息/研究目的/被试/实验设计/…/结论/Code & Data]由你直接写散文,渲染器只补主张/证据表格与两大嵌入章节;字段契约以 ARCHITECTURE.md §3 为准,禁止自行编造字段或 enum 值)。完成后报告写入路径与 lint 结果。

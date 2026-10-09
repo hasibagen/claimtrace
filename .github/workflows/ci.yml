@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Tests + demo vault lint (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt pytest
+
+      - name: Unit tests (edge registry, schemas, grounding, lint core)
+        run: python -m pytest scripts/tests -q
+
+      - name: Lint demo vault (all 8 layers)
+        run: python scripts/wiki_common.py lint --wiki-root demo
+
+      - name: Render idempotency (bodies are a pure function of frontmatter)
+        run: |
+          python scripts/wiki_render_nodes.py evidence demo/evidence --wiki-root demo
+          python scripts/wiki_render_nodes.py claim demo/claims --wiki-root demo
+          git diff --exit-code demo || { echo "::error::render is not idempotent on demo vault"; exit 1; }

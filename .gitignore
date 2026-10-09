@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Testing
+.pytest_cache/
+.coverage
+
+# OS / editors
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+
+# Obsidian caches (your real vault's, not the demo's)
+demo/.obsidian/
+
+# User data — the skill ships a demo vault only; your own wiki never belongs in this repo
+!demo/**

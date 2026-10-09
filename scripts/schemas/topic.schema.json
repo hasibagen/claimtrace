@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wiki/schemas/topic.schema.json",
+  "title": "Topic",
+  "description": "topic node frontmatter schema (ARCHITECTURE §3.6, MOC 模式)",
+  "type": "object",
+  "required": ["type", "id"],
+  "properties": {
+    "type": { "const": "topic" },
+    "schema_version": { "const": "plan_final_v1" },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "minLength": 3,
+      "maxLength": 80,
+      "description": "topic-key,kebab-case"
+    }
+  },
+  "additionalProperties": false
+}

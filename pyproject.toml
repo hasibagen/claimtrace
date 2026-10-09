@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claimtrace"
+version = "2.0.0"
+description = "An AI-maintained, evidence-traceable wiki for academic papers: paper → claim → evidence nodes, LLM-extracted, script-validated, Obsidian-native."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "hasibagen" }]
+license = { text = "MIT" }
+keywords = [
+  "evidence", "claims", "academic-writing", "literature-review", "zotero",
+  "obsidian", "knowledge-graph", "llm-agents", "citation", "fact-checking",
+]
+dependencies = [
+  "PyYAML>=6.0",
+  "jsonschema>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/hasibagen/claimtrace"
+Repository = "https://github.com/hasibagen/claimtrace"
+Issues = "https://github.com/hasibagen/claimtrace/issues"
+Changelog = "https://github.com/hasibagen/claimtrace/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = [
+  "scripts", "scripts.schemas", "scripts.tests",
+  "specs", "skills", "references", "references.templates", "references.examples",
+]
+
+[tool.setuptools.package-dir]
+"" = "."
+
+[tool.setuptools.package-data]
+"scripts" = ["*.sh", "wiki"]
+"scripts.schemas" = ["*.json", "_registry.py"]
+"specs" = ["*.md"]
+"references" = ["*.md"]
+"references.templates" = ["*.md"]
+"references.examples" = ["*.md", "*.json"]
+"skills" = ["*/SKILL.md"]
