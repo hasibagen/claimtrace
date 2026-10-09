@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-4F46E5.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![Release](https://img.shields.io/badge/release-v2.0.0-181717?logo=github)](https://github.com/hasibagen/claimtrace/releases)
-[![Engines](https://img.shields.io/badge/LLM%20engines-pi%20%7C%20codex%20%7C%20zcode%20%7C%20Claude--style-10B981)](INVOKE.md)
+[![Engines](https://img.shields.io/badge/LLM%20engines-pi%20%7C%20codex%20%7C%20zcode%20%7C%20Claude%20Code-10B981)](INVOKE.md)
 
 **ClaimTrace is an evidence wiki that your AI coding agent writes and maintain, and that you can audit.**
 Papers become **claims** (atomic propositions) and **evidence** (verbatim quotes with provenance), linked by **typed edges** (`supports` / `contradicts` / `qualifies`) into a synthesis-ready knowledge graph — plain Markdown, Obsidian-native, git-versioned.
